@@ -1,0 +1,161 @@
+{
+  "name": "@adonisjs/core",
+  "version": "5.0.0-preview-rc-1.11",
+  "description": "Adonisjs Core",
+  "main": "build/providers/AppProvider.js",
+  "files": [
+    "build/adonis-typings",
+    "build/templates",
+    "build/commands",
+    "build/providers",
+    "build/src",
+    "build/instructions.js"
+  ],
+  "scripts": {
+    "mrm": "mrm --preset=@adonisjs/mrm-preset",
+    "pretest": "npm run lint",
+    "test": "node japaFile.js",
+    "clean": "del build",
+    "compile": "npm run lint && npm run clean && tsc && copyfiles templates/**/* build",
+    "build": "npm run compile",
+    "commit": "git-cz",
+    "release": "np",
+    "version": "npm run build",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint . --ext=.ts",
+    "format": "prettier --write .",
+    "sync-labels": "github-label-sync --labels ./node_modules/@adonisjs/mrm-preset/gh-labels.json adonisjs/core"
+  },
+  "types": "./build/adonis-typings/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adonisjs/core.git"
+  },
+  "keywords": [
+    "adonisjs",
+    "framework",
+    "mvc"
+  ],
+  "author": "virk,adonisjs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adonisjs/core/issues"
+  },
+  "homepage": "https://github.com/adonisjs/core#readme",
+  "devDependencies": {
+    "@adonisjs/ace": "^6.9.3",
+    "@adonisjs/assembler": "^2.1.3",
+    "@adonisjs/fold": "^6.3.5",
+    "@adonisjs/mrm-preset": "^2.4.0",
+    "@adonisjs/sink": "^3.0.2",
+    "@poppinss/dev-utils": "^1.0.8",
+    "@types/node": "^14.0.26",
+    "@types/supertest": "^2.0.10",
+    "commitizen": "^4.1.2",
+    "copyfiles": "^2.3.0",
+    "cz-conventional-changelog": "^3.2.0",
+    "del-cli": "^3.0.1",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-adonis": "^1.0.14",
+    "eslint-plugin-prettier": "^3.1.4",
+    "github-label-sync": "^2.0.0",
+    "husky": "^4.2.5",
+    "japa": "^3.1.1",
+    "mrm": "^2.3.3",
+    "np": "^6.3.2",
+    "npm-audit-html": "^1.4.1",
+    "prettier": "^2.0.5",
+    "reflect-metadata": "^0.1.13",
+    "strip-ansi": "^6.0.0",
+    "supertest": "^4.0.2",
+    "test-console": "^1.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7",
+    "youch": "^2.0.10",
+    "youch-terminal": "^1.0.0"
+  },
+  "nyc": {
+    "exclude": [
+      "test"
+    ],
+    "extension": [
+      ".ts"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "node ./node_modules/@adonisjs/mrm-preset/validateCommit/conventional/validate.js",
+      "pre-commit": "npm audit --production --json | ./node_modules/.bin/npm-audit-html && git add npm-audit.html"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@adonisjs/application": "^2.0.0",
+    "@adonisjs/bodyparser": "^4.0.5",
+    "@adonisjs/config": "^1.1.0",
+    "@adonisjs/encryption": "^2.0.6",
+    "@adonisjs/env": "^1.0.18",
+    "@adonisjs/events": "^4.0.1",
+    "@adonisjs/hash": "^5.0.0",
+    "@adonisjs/http-server": "https://github.com/blueoneapp/ecp/tree/master/legacy-dependencies/http-server",
+    "@adonisjs/logger": "^2.1.0",
+    "@adonisjs/profiler": "^4.0.1",
+    "@adonisjs/validator": "^7.4.0",
+    "@poppinss/utils": "^2.5.2",
+    "@types/find-package-json": "^1.1.1",
+    "cli-table3": "^0.6.0",
+    "find-package-json": "^1.2.0",
+    "semver": "^7.3.2",
+    "serve-static": "^1.14.1"
+  },
+  "peerDependencies": {
+    "@adonisjs/fold": "^6.0.0",
+    "@adonisjs/ace": "^6.0.0"
+  },
+  "np": {
+    "contents": ".",
+    "anyBranch": false
+  },
+  "adonisjs": {
+    "instructions": "./build/instructions.js",
+    "templates": {
+      "basePath": "./build/templates",
+      "config": [
+        {
+          "src": "config/bodyparser.txt",
+          "dest": "bodyparser"
+        },
+        {
+          "src": "config/cors.txt",
+          "dest": "cors"
+        },
+        {
+          "src": "config/hash.txt",
+          "dest": "hash"
+        }
+      ],
+      "contracts": [
+        {
+          "src": "contracts/events.txt",
+          "dest": "events"
+        },
+        {
+          "src": "contracts/hash.txt",
+          "dest": "hash"
+        }
+      ]
+    },
+    "commands": [
+      "@adonisjs/core/build/commands"
+    ],
+    "types": "@adonisjs/core",
+    "providers": [
+      "@adonisjs/core"
+    ]
+  }
+}
