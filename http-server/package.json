@@ -115,7 +115,7 @@
     "fresh": "^0.5.2",
     "haye": "^2.0.2",
     "macroable": "^5.0.1",
-    "matchit": "https://github.com/blueoneapp/legacy-dependences/tree/main/matchit",
+    "matchit": "git+https://github.com/blueoneapp/legacy-dependences/tree/main/matchit.git",
     "mime-types": "^2.1.27",
     "ms": "^2.1.2",
     "on-finished": "^2.3.0",

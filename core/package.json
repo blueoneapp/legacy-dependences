@@ -102,7 +102,7 @@
     "@adonisjs/env": "^1.0.18",
     "@adonisjs/events": "^4.0.1",
     "@adonisjs/hash": "^5.0.0",
-    "@adonisjs/http-server": "https://github.com/blueoneapp/legacy-dependences/tree/main/http-server",
+    "@adonisjs/http-server": "git+https://github.com/blueoneapp/legacy-dependences/tree/main/http-server.git",
     "@adonisjs/logger": "^2.1.0",
     "@adonisjs/profiler": "^4.0.1",
     "@adonisjs/validator": "^7.4.0",
